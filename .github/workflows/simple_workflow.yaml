@@ -34,7 +34,7 @@ jobs:
       name: 'Checkout repository'
 
     - name: Install Dependencies
-      run: pip install -r requirements.tx
+      run: pip install -r requirements.txt
 
     - name: Run Linting
       run: pylint ./simple_python/simple_python.py
