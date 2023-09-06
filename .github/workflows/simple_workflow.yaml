@@ -26,4 +26,17 @@ jobs:
     - name: 'Run Testes'
       run: pytest -vv
 
+  lint:
+    name: 'Run Linting'
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+      name: 'Checkout repository'
+
+    - name: Install Dependencies
+      run: pip install -r requirements.tx
+
+    - name: Run Linting
+      run: pylint ./simple_python/simple_python.py
+
 
