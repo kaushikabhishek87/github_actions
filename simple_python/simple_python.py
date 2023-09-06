@@ -2,7 +2,7 @@
 
 def addition(value_1, value_2):
     '''
-    Simple function to add two numbers
+    Simple function to add two numbers can be int
     '''
     return value_1+value_2
 
