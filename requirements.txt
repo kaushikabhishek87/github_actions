@@ -1,2 +1,3 @@
+wheel
 pytest==7.4.1
 pylint

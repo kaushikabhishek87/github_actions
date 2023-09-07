@@ -3,17 +3,17 @@ name: Continuos Integration Workflow
 
 on:
   workflow_dispatch:
-  # push:
-  #   branches:
-  #     - main
-      
-  pull_request:
-    types:
-      - opened
+  push:
     branches:
       - main
-    paths-ignore:
-      - '.github/workflows/*'
+      
+  # pull_request:
+  #   types:
+  #     - opened
+  #   branches:
+  #     - main
+    # paths-ignore:
+    #   - '.github/workflows/*'
 
 defaults:
   run: 
@@ -52,14 +52,29 @@ jobs:
     - name: Run Linting
       run: pylint ./simple_python/simple_python.py
 
-  test-job:
-    needs: [lint, test]
-    name: Test Job
-    runs-on: ubuntu-latest
-    steps:
-      - name: Print Greeting
-        run: echo "Hellow World!"
-      - name: Print Goodbye
-        run: echo "Done - Bye"
+    - name: Build package
+      run: python setup.py sdist bdist_wheel
+
+
+    - name: upload artifacts
+      uses: actions/upload-artifact@v3
+      with: 
+        name: dist-files
+        path: |
+            dist 
+
+  # test-job:
+  #   needs: [lint, test]
+  #   name: Test Job
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Print Greeting
+  #       run: echo "Hellow World!"
+  #     - name: Print Goodbye
+  #       run: echo "Done - Bye"
+
+  
+
+  
 
 
