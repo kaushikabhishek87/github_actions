@@ -43,4 +43,13 @@ jobs:
     - name: Run Linting
       run: pylint ./simple_python/simple_python.py
 
+  test-job:
+    name: Test Job
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print Greeting
+        run: echo "Hellow World!"
+      - name: Print Goodbye
+        run: echo "Done - Bye"
+
 
