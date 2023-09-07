@@ -49,7 +49,7 @@ jobs:
       run: pylint ./simple_python/simple_python.py
 
   test-job:
-    need: [lint, test]
+    needs: [lint, test]
     name: Test Job
     runs-on: ubuntu-latest
     steps:
