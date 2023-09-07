@@ -3,7 +3,7 @@ on: workflow_dispatch
 jobs:
   get_info:
     name: Get github context info
-    runs_on: ubuntu_latest
+    runs-on: ubuntu_latest
     steps:
       - name: Output github context info
         run: echo "{{ toJson(github)  }}"
