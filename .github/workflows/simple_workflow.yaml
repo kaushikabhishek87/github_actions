@@ -71,7 +71,7 @@ jobs:
       - name: Download artifacts
         uses: actions/download-artifacts@v3
         with:
-          - name: dist-files
+          name: dist-files
       - name: Output Contents
         run: ls
       - name: Deploy
