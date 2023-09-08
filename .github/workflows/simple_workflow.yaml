@@ -94,7 +94,7 @@ jobs:
       - name: Output filename
         run: echo "${{ needs.lint.outputs.script-file }}"
       - name: Deploy
-        run: echo "Deploying..."
+        run: echo "Deploying whatever"
   
 
   
