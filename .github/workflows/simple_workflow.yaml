@@ -42,6 +42,8 @@ jobs:
   lint:
     name: 'Run Linting'
     runs-on: ubuntu-latest
+    outputs:
+      script-file: ${{ steps.publish.outputs.requried-file }}
     steps:
     - uses: actions/checkout@v2
       name: 'Checkout repository'
@@ -55,6 +57,9 @@ jobs:
     - name: Build package
       run: python setup.py sdist bdist_wheel
 
+    - name: Publish Wheel file name
+      id: publish
+      run: find dist/*.whl -type f -execdir echo 'required-file={}' >> $GITHUB_OUTPUT ';'
 
     - name: upload artifacts
       uses: actions/upload-artifact@v3
@@ -74,6 +79,8 @@ jobs:
           name: dist-files
       - name: Output Contents
         run: ls
+      - name: Output filename
+        run: echo "${{ needs.lint.outputs.script-file }}"
       - name: Deploy
         run: echo "Deploying..."
   
