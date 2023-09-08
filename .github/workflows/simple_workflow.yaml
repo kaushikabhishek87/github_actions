@@ -43,7 +43,7 @@ jobs:
     name: 'Run Linting'
     runs-on: ubuntu-latest
     outputs:
-      script-file: ${{ steps.publish.outputs.requried-file }}
+      script-file: ${{ steps.publish.outputs.script-file }}
     steps:
     - uses: actions/checkout@v2
       name: 'Checkout repository'
@@ -59,7 +59,7 @@ jobs:
 
     - name: Publish Wheel file name
       id: publish
-      run: find dist/*.whl -type f -execdir echo 'required-file={}' >> $GITHUB_OUTPUT ';'
+      run: find dist/*.whl -type f -execdir echo 'script-file={}' >> $GITHUB_OUTPUT ';'
 
     - name: upload artifacts
       uses: actions/upload-artifact@v3
