@@ -63,16 +63,19 @@ jobs:
         path: |
             dist 
 
-  # test-job:
-  #   needs: [lint, test]
-  #   name: Test Job
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - name: Print Greeting
-  #       run: echo "Hellow World!"
-  #     - name: Print Goodbye
-  #       run: echo "Done - Bye"
-
+  deploy:
+    name: Deploy Job
+    needs: [lint]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download artifacts
+        uses: actions/download-artifacts@v3
+        with:
+          - name: dist-files
+      - name: Output Contents
+        run: ls
+      - name: Deploy
+        run: echo "Deploying..."
   
 
   
