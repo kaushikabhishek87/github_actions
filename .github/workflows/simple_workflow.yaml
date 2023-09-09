@@ -24,7 +24,7 @@ env:
 
 jobs:
   env:
-  THIS_IS_JOB_ENV: job_env
+    THIS_IS_JOB_ENV: job_env
 
   test:
     name: 'Run unit tests wow'
