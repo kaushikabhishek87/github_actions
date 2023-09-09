@@ -15,18 +15,18 @@ on:
     # paths-ignore:
     #   - '.github/workflows/*'
 
+env:
+  THIS_IS_WORKFLOW_ENV: workflow_env
+
 defaults:
   run: 
     shell: bash
 
-env:
-  THIS_IS_WORKFLOW_ENV: workflow_env
-
 jobs:
   test:
+    name: Run unit tests
     env:
       THIS_IS_JOB_ENV: job_env
-    name: 'Run unit tests wow'
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -48,13 +48,13 @@ jobs:
     - name: 'Run Tests'
       run: pytest -vv
 
-    - name: Accessing Env V1
-      run: |
-        echo "THIS_IS_JOB_ENV: ${{ env.THIS_IS_JOB_ENV }}"
+    # - name: Accessing Env V1
+    #   run: |
+    #     echo "THIS_IS_JOB_ENV: ${{ env.THIS_IS_JOB_ENV }}"
     
-     - name: Accessing Env V2
-      run: |
-        echo "THIS_IS_JOB_ENV: ${{ env.THIS_IS_JOB_ENV }}"
+    #  - name: Accessing Env V2
+    #   run: |
+    #     echo "THIS_IS_JOB_ENV: ${{ env.THIS_IS_JOB_ENV }}"
 
   lint:
     name: 'Run Linting'
@@ -107,10 +107,12 @@ jobs:
       - name: Deploy
         run: echo "Deploying whatever"
       - name: Accessing job level Env
-        run: echo "THIS_IS_JOB_ENV : ${{ env.THIS_IS_JOB_ENV }}""
+        run: |
+          echo "THIS_IS_JOB_ENV : ${{ env.THIS_IS_JOB_ENV }}""
       
       - name: Accessing workflow level Env
-        run: echo "THIS_IS_WORKFLOW_ENV : $THIS_IS_WORKFLOW_ENV"
+        run: |
+          echo "THIS_IS_WORKFLOW_ENV : $THIS_IS_WORKFLOW_ENV"
   
 
   
