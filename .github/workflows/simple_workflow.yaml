@@ -29,32 +29,32 @@ jobs:
       THIS_IS_JOB_ENV: job_env
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-      name: 'Checkout repository'
-    - name: Install Python
-      uses: actions/setup-python@v4
-      with:
-        python-version: '3.10' 
+      - uses: actions/checkout@v2
+        name: 'Checkout repository'
+      - name: Install Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10' 
 
-    - name: Cache Dependencies
-      uses: actions/cache@v2
-      with:
-        path: ~/.cache/pip
-        key: ${{ hashFiles('setup.py') }}-${{ hashFiles('requirements.txt') }}
+      - name: Cache Dependencies
+        uses: actions/cache@v2
+        with:
+          path: ~/.cache/pip
+          key: ${{ hashFiles('setup.py') }}-${{ hashFiles('requirements.txt') }}
 
-    - name: 'Install Dependencies'
-      run: pip install -r requirements.txt
+      - name: 'Install Dependencies'
+        run: pip install -r requirements.txt
 
-    - name: 'Run Tests'
-      run: pytest -vv
+      - name: 'Run Tests'
+        run: pytest -vv
 
-    # - name: Accessing Env V1
-    #   run: |
-    #     echo "THIS_IS_JOB_ENV: ${{ env.THIS_IS_JOB_ENV }}"
-    
-    #  - name: Accessing Env V2
-    #   run: |
-    #     echo "THIS_IS_JOB_ENV: ${{ env.THIS_IS_JOB_ENV }}"
+      - name: Accessing Env V1
+        run: |
+          echo "THIS_IS_JOB_ENV: ${{ env.THIS_IS_JOB_ENV }}"
+      
+       - name: Accessing Env V2
+        run: |
+          echo "THIS_IS_JOB_ENV: ${{ env.THIS_IS_JOB_ENV }}"
 
   lint:
     name: 'Run Linting'
