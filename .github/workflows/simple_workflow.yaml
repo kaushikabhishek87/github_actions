@@ -52,7 +52,7 @@ jobs:
 
       - name: Accessing Env V1
         run: |
-          echo "THIS_IS_JOB_ENV : ${{ env.THIS_IS_JOB_ENV }}"
+          echo 'THIS_IS_JOB_ENV V1 : $THIS_IS_JOB_ENV'
           
       
       - name: Accessing Env V2
