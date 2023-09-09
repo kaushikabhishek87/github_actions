@@ -26,8 +26,8 @@ jobs:
   test:
     name: Run unit tests
     
-    # env:
-    #   THIS_IS_JOB_ENV: job_env
+    env:
+      THIS_IS_JOB_ENV: job_env
 
     runs-on: ubuntu-latest
     steps:
@@ -52,11 +52,12 @@ jobs:
 
       - name: Accessing Env V1
         run: |
-          echo "THIS_IS_JOB_ENV: ${{ env.THIS_IS_JOB_ENV }}"
+          echo "THIS_IS_JOB_ENV : ${{ env.THIS_IS_JOB_ENV }}"
+          
       
-       - name: Accessing Env V2
+      - name: Accessing Env V2
         run: |
-          echo "THIS_IS_JOB_ENV: ${{ env.THIS_IS_JOB_ENV }}"
+          echo "THIS_IS_JOB_ENV : ${{ env.THIS_IS_JOB_ENV }}"
 
   lint:
     name: 'Run Linting'
