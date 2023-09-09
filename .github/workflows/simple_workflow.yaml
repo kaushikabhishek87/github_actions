@@ -23,10 +23,9 @@ env:
   THIS_IS_WORKFLOW_ENV: workflow_env
 
 jobs:
-  env:
-    THIS_IS_JOB_ENV: job_env
-
   test:
+    env:
+      THIS_IS_JOB_ENV: job_env
     name: 'Run unit tests wow'
     runs-on: ubuntu-latest
     steps:
@@ -50,10 +49,12 @@ jobs:
       run: pytest -vv
 
     - name: Accessing Env V1
-      run: echo "THIS_IS_JOB_ENV_V1: ${{ env.THIS_IS_JOB_ENV }}"
+      run: |
+        echo "THIS_IS_JOB_ENV: ${{ env.THIS_IS_JOB_ENV }}"
     
      - name: Accessing Env V2
-      run: echo "THIS_IS_JOB_ENV_V2: ${{ env.THIS_IS_JOB_ENV }}"
+      run: |
+        echo "THIS_IS_JOB_ENV: ${{ env.THIS_IS_JOB_ENV }}"
 
   lint:
     name: 'Run Linting'
