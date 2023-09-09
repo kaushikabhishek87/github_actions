@@ -107,10 +107,12 @@ jobs:
       - name: Deploy
         run: echo "Deploying whatever"
       - name: Accessing job level Env
-        run: echo "THIS_IS_JOB_ENV : ${{ env.THIS_IS_JOB_ENV }}""
+        run: |
+          echo "THIS_IS_JOB_ENV : ${{ env.THIS_IS_JOB_ENV }}""
       
       - name: Accessing workflow level Env
-        run: echo "THIS_IS_WORKFLOW_ENV : $THIS_IS_WORKFLOW_ENV"
+        run: |
+          echo "THIS_IS_WORKFLOW_ENV : $THIS_IS_WORKFLOW_ENV"
   
 
   
