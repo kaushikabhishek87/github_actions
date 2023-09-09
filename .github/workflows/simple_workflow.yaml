@@ -19,8 +19,12 @@ defaults:
   run: 
     shell: bash
 
+env:
+  THIS_IS_WORKFLOW_ENV: workflow_env
 
 jobs:
+  env:
+  THIS_IS_JOB_ENV: job_env
 
   test:
     name: 'Run unit tests wow'
@@ -44,6 +48,12 @@ jobs:
 
     - name: 'Run Tests'
       run: pytest -vv
+
+    - name: Accessing Env V1
+      run: echo 'THIS_IS_JOB_ENV V1: $THIS_IS_JOB_ENV'
+    
+     - name: Accessing Env V2
+      run: echo 'THIS_IS_JOB_ENV V2: ${{ env.THIS_IS_JOB_ENV }}'
 
   lint:
     name: 'Run Linting'
@@ -95,6 +105,11 @@ jobs:
         run: echo "${{ needs.lint.outputs.script-file }}"
       - name: Deploy
         run: echo "Deploying whatever"
+      - name: Accessing job level Env
+        run: echo 'THIS_IS_JOB_ENV : ${{ env.THIS_IS_JOB_ENV }}'
+      
+      - name: Accessing workflow level Env
+        run: echo 'THIS_IS_WORKFLOW_ENV : $THIS_IS_WORKFLOW_ENV'
   
 
   
