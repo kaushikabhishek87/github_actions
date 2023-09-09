@@ -25,8 +25,10 @@ defaults:
 jobs:
   test:
     name: Run unit tests
-    env:
-      THIS_IS_JOB_ENV: job_env
+    
+    # env:
+    #   THIS_IS_JOB_ENV: job_env
+
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
