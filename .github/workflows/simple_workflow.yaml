@@ -23,10 +23,9 @@ env:
   THIS_IS_WORKFLOW_ENV: workflow_env
 
 jobs:
-  env:
-    THIS_IS_JOB_ENV: job_env
-
   test:
+    env:
+      THIS_IS_JOB_ENV: job_env
     name: 'Run unit tests wow'
     runs-on: ubuntu-latest
     steps:
