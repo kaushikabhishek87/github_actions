@@ -50,10 +50,10 @@ jobs:
       run: pytest -vv
 
     - name: Accessing Env V1
-      run: echo 'THIS_IS_JOB_ENV_V1: $THIS_IS_JOB_ENV'
+      run: echo "THIS_IS_JOB_ENV_V1: $THIS_IS_JOB_ENV"
     
      - name: Accessing Env V2
-      run: echo "THIS_IS_JOB_ENV_V2: ${{ env.THIS_IS_JOB_ENV }}""
+      run: echo "THIS_IS_JOB_ENV_V2: ${{ env.THIS_IS_JOB_ENV }}"
 
   lint:
     name: 'Run Linting'
