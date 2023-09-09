@@ -16,7 +16,7 @@ on:
     #   - '.github/workflows/*'
 
 env:
-  THIS_IS_WORKFLOW_ENV: workflow_env
+  THIS_IS_WORKFLOW_ENV: ${{ secrets.THIS_IS_WORKFLOW_ENV  }}
 
 defaults:
   run: 
@@ -27,7 +27,7 @@ jobs:
     name: Run unit tests
     
     env:
-      THIS_IS_JOB_ENV: job_env
+      THIS_IS_JOB_ENV: ${{ secrets.THIS_IS_JOB_ENV }}
 
     runs-on: ubuntu-latest
     steps:
