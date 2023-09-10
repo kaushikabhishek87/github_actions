@@ -127,6 +127,15 @@ jobs:
       - name: Accessing workflow level Env
         run: |
           echo "THIS_IS_WORKFLOW_ENV : $THIS_IS_WORKFLOW_ENV"
+
+  report:
+    name: Report job 
+    runs-on: ubuntu-latest
+    steps:
+      - name: Output information
+        run: |
+          echo "Something went wrong"
+          echo "${{ github }}"
   
 
   
