@@ -9,13 +9,15 @@ on:
         type: string
 
   jobs:
-  deploy:
-    name: Resuable Deploy
-    runs-on: ubuntu-latest
-    steps:
-      - name: get code
-        uses: actions/download-artifact@v3
-        with:
-          name: ${{ inputs.artifact-name  }}
-      - name: step 1
-        run: echo "This is resuable workflow"
+    deploy:
+      name: Resuable Deploy
+      runs-on: ubuntu-latest
+      steps:
+        - name: get code
+          uses: actions/download-artifact@v3
+          with:
+            name: ${{ inputs.artifact-name  }}
+        - name: list contents
+          run: ls
+        - name: step 1
+          run: echo "This is resuable workflow"
