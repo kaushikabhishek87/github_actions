@@ -45,7 +45,7 @@ jobs:
           # path: ~/.cache/pip
           path: ${{ env.pythonLocation }}
           # key: ${{ hashFiles('setup.py') }}-${{ hashFiles('requirements.txt') }}
-          key: ${{ env.pythonLocation }}-${{ hashFiles('requirements.txt') }}
+          key:  ${{ env.pythonLocation }}-${{ hashFiles('setup.py') }}-${{ hashFiles('dev-requirements.txt') }}
 
       - name: 'Install Dependencies'
         if : steps.cache.outputs.cache-hit != 'true'
@@ -84,13 +84,13 @@ jobs:
       name: 'Checkout repository'
 
     - name: Cache Dependencies
-        id: cache
-        uses: actions/cache@v2
-        with:
-          # path: ~/.cache/pip
-          path: ${{ env.pythonLocation }}
-          # key: ${{ hashFiles('setup.py') }}-${{ hashFiles('requirements.txt') }}
-          key: ${{ env.pythonLocation }}-${{ hashFiles('requirements.txt') }}
+      id: cache
+      uses: actions/cache@v2
+      with:
+        # path: ~/.cache/pip
+        path: ${{ env.pythonLocation }}
+        # key: ${{ hashFiles('setup.py') }}-${{ hashFiles('requirements.txt') }}
+        key: ${{ env.pythonLocation }}-${{ hashFiles('setup.py') }}-${{ hashFiles('dev-requirements.txt') }}
 
     - name: 'Install Dependencies'
       if : steps.cache.outputs.cache-hit != 'true'
