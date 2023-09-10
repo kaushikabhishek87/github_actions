@@ -8,7 +8,7 @@ on:
         default: dist
         type: string
 
-  jobs:
+jobs:
   deploy:
     name: Resuable Deploy
     runs-on: ubuntu-latest
@@ -17,5 +17,7 @@ on:
         uses: actions/download-artifact@v3
         with:
           name: ${{ inputs.artifact-name  }}
+      - name: list contents
+        run: ls
       - name: step 1
         run: echo "This is resuable workflow"
