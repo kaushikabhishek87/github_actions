@@ -57,7 +57,7 @@ jobs:
       
       - name: Accessing Env V2
         run: |
-          echo "THIS_IS_JOB_ENV : ${{ env.THIS_IS_JOB_ENV }}"
+          echo "THIS_IS_JOB_ENV V2 : ${{ env.THIS_IS_JOB_ENV }}"
 
   lint:
     name: 'Run Linting'
