@@ -164,6 +164,7 @@ jobs:
           echo "${{ github }}"
   
   reusable_workflow:
+    needs: [lint]
     name: Using Resuable workflow
     uses: ./.github/workflows/resuable.yaml  
     with:
