@@ -28,4 +28,4 @@ jobs:
         run: ls
       - name: Set result output
         id: set-result 
-        run: echo "set-result=success" >> GITHUB_OUTPUT
+        run: echo "set-result=success" >> $GITHUB_OUTPUT
