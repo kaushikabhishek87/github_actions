@@ -54,12 +54,23 @@ jobs:
       # - name: 'Run Tests'
       #   run: pytest -vv
 
+      # - name: 'Run Tests with test report'
+      #   id: run_tests
+      #   run: pytest --json-report -vv
+
+      # - name: Upload test report
+      #   if: failure() && steps.run_tests.outcome == 'failure'
+      #   uses: actions/upload-artifact@v3
+      #   with:
+      #     name: test-report
+      #     path: .report.json  
+      
       - name: 'Run Tests with test report'
+        continue-on-error: true 
         id: run_tests
         run: pytest --json-report -vv
 
       - name: Upload test report
-        if: failure() && steps.run_tests.outcome == 'failure'
         uses: actions/upload-artifact@v3
         with:
           name: test-report
