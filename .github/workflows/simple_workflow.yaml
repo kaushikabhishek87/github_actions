@@ -25,7 +25,7 @@ defaults:
 jobs:
   test:
     name: Run unit tests
-    
+    environment: testing
     env:
       THIS_IS_JOB_ENV: ${{ secrets.THIS_IS_JOB_ENV }}
 
