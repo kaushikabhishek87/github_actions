@@ -9,11 +9,11 @@ jobs:
           python-versions: ['3.10', '3.11']
           operating-system: [ubuntu-latest]
         include:
-          python-versions: '3.10'
-          operating-system: ubuntu-latest
+          - python-versions: '3.10'
+            operating-system: ubuntu-latest
         exclude:
-          python-versions: '3.11'
-          operating-system: ubuntu-latest
+          - python-versions: '3.11'
+            operating-system: ubuntu-latest
       runs-on: ${{ matrix.operating-system }}
       steps:
         - name: checkout code
