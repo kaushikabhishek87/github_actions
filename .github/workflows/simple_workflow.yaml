@@ -170,6 +170,14 @@ jobs:
     with:
       artifact-name: dist-files
 
+  print-deploy-result:
+    needs: ['reusable_workflow']
+    name: Print the resuable outcome
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print deploy result
+        run: echo "${{needs.reusable_workflow.outputs.result}}"    
+
   
 
 
