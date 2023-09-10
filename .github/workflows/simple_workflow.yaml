@@ -45,7 +45,7 @@ jobs:
           # path: ~/.cache/pip
           path: ${{ env.pythonLocation }}
           # key: ${{ hashFiles('setup.py') }}-${{ hashFiles('requirements.txt') }}
-          key:  ${{ env.pythonLocation }}-${{ hashFiles('setup.py') }}-${{ hashFiles('dev-requirements.txt') }}
+          key:  ${{ env.pythonLocation }}-${{ hashFiles('setup.py') }}-${{ hashFiles('requirements.txt') }}
 
       - name: 'Install Dependencies'
         if : steps.cache.outputs.cache-hit != 'true'
@@ -90,7 +90,7 @@ jobs:
         # path: ~/.cache/pip
         path: ${{ env.pythonLocation }}
         # key: ${{ hashFiles('setup.py') }}-${{ hashFiles('requirements.txt') }}
-        key: ${{ env.pythonLocation }}-${{ hashFiles('setup.py') }}-${{ hashFiles('dev-requirements.txt') }}
+        key: ${{ env.pythonLocation }}-${{ hashFiles('setup.py') }}-${{ hashFiles('requirements.txt') }}
 
     - name: 'Install Dependencies'
       if : steps.cache.outputs.cache-hit != 'true'
