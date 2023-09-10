@@ -131,7 +131,7 @@ jobs:
   report:
     name: Report job 
     runs-on: ubuntu-latest
-    stepe:
+    steps:
       - name: Output information
         run: |
           echo "Something went wrong"
