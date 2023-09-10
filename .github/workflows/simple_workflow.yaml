@@ -129,8 +129,9 @@ jobs:
           echo "THIS_IS_WORKFLOW_ENV : $THIS_IS_WORKFLOW_ENV"
 
   report:
-    name: Report job 
+    name: Report job
     runs-on: ubuntu-latest
+    if: failure()
     steps:
       - name: Output information
         run: |
