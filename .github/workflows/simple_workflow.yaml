@@ -47,8 +47,19 @@ jobs:
       - name: 'Install Dependencies'
         run: pip install -r requirements.txt
 
-      - name: 'Run Tests'
-        run: pytest -vv
+      # - name: 'Run Tests'
+      #   run: pytest -vv
+
+      - name: 'Run Tests with test report'
+        id: run_tests
+        run: pytest --json-report -vv
+
+      - name: Upload test report
+        if: steps.run_tests.outcome == 'failure'
+        uses: acactions/upload-artifact@v3
+        with:
+          name: test-report
+          path: .report.json  
 
       - name: Accessing Env V1
         run: |
