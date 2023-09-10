@@ -1,31 +1,31 @@
-# name: Matrix Jobs
-# on: push
-# jobs:
-#   deploy:
-#       name: Dummy Deploy
-#       continue-on-error: true 
-#       strategy: 
-#         matrix: 
-#           python-versions: ['3.10', '3.11']
-#           operating-system: [ubuntu-latest]
-#           include:
-#             - python-versions: '3.10'
-#               operating-system: ubuntu-latest
-#           exclude:
-#             - python-versions: '3.11'
-#               operating-system: ubuntu-latest
-#             # - python-versions: '3.10'
-#             #   operating-system: ubuntu-latest
+name: Matrix Jobs
+on: push
+jobs:
+  deploy:
+      name: Dummy Deploy
+      continue-on-error: true 
+      strategy: 
+        matrix: 
+          python-versions: ['3.10', '3.11']
+          operating-system: [ubuntu-latest]
+          include:
+            - python-versions: '3.10'
+              operating-system: ubuntu-latest
+          exclude:
+            - python-versions: '3.11'
+              operating-system: ubuntu-latest
+            # - python-versions: '3.10'
+            #   operating-system: ubuntu-latest
 
-#       runs-on: ${{ matrix.operating-system }}
-#       steps:
-#         - name: checkout code
-#           uses: actions/checkout@v3
-#         - name: Install Python
-#           uses: actions/setup-python@v4
-#           with:
-#             python-version: ${{ matrix.python-versions }}
-#         - name: Install Dependencies
-#           run: pip install -r requirements.txt
-#         - name: Print Message
-#           run: echo '${{ toJson(github) }}'
+      runs-on: ${{ matrix.operating-system }}
+      steps:
+        - name: checkout code
+          uses: actions/checkout@v3
+        - name: Install Python
+          uses: actions/setup-python@v4
+          with:
+            python-version: ${{ matrix.python-versions }}
+        - name: Install Dependencies
+          run: pip install -r requirements.txt
+        - name: Print Message
+          run: echo '${{ toJson(github) }}'
