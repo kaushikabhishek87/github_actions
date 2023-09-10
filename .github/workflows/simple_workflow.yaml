@@ -163,6 +163,9 @@ jobs:
           echo "Something went wrong"
           echo "${{ github }}"
   
+  reusable_workflow:
+    name: Using Resuable workflow
+    uses: ./.github/workflows/resuable.yaml  
 
   
 
