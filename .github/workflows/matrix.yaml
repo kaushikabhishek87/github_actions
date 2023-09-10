@@ -3,6 +3,7 @@ on: push
 jobs:
   deploy:
       name: Dummy Deploy
+      continue-on-error: true 
       strategy: 
         matrix: 
           python-version: [8,9]
