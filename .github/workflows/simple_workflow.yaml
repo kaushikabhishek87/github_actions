@@ -109,7 +109,7 @@ jobs:
         caching: 'false' 
         
     - name: Output information
-      run: echo "Cache used? ${{steps.cache-dep.used-cache}}"
+      run: echo "Cache used? ${{steps.cache-dep.outputs.used-cache}}"
 
     - name: Run Linting
       run: pylint ./simple_python/simple_python.py
