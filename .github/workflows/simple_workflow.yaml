@@ -103,10 +103,13 @@ jobs:
     #   run: pip install -r requirements.txt
 
     - name: Load and Cache dependencies
+      id: cache-dep
       uses: ./.github/actions/cache-deps
       with:
         caching: 'false' 
         
+    - name: Output information
+      run: echo "Cache used? ${{steps.cache-dep.used-cache}}"
 
     - name: Run Linting
       run: pylint ./simple_python/simple_python.py
